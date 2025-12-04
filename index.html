@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book of Answers</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-image: url('bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #answer {
+            color: white;
+            font-size: 3rem;
+            font-family: 'Serif', sans-serif;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            body, html {
+                background-image: url('bg_mobile.webp');
+            }
+            #answer {
+                font-size: 2.5rem;
+            }
+            #answer .prompt {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-container">
+        <div id="answer"><span class="prompt">按下空格键或点击开始</span></div>
+    </div>
+
+    <script>
+        const answers = [
+            "下次再试试吧",
+            "深呼吸试试",
+            "保持乐观心态",
+            "事在人为",
+            "汪汪汪",
+            "去做吧",
+            "到码头整点薯条",
+            "事已至此<br>先吃饭吧",
+            "看着然然的眼睛<br>你已经有答案了吧",
+            "多看嘉然",
+            "做能让自己开心的事",
+            "希望可以",
+            "船到桥头自然直",
+            "会有的<br>糖糖会有的",
+            "卖个萌吧",
+            "可以期待",
+            "一定！",
+            "顺其自然",
+            "不要跟猴说这些",
+            "天王盖地虎",
+            "不安",
+            "mua一下",
+            "再等等",
+            "那咋啦",
+            "不好说",
+            "头秃",
+            "要求不必太高",
+            "注意细节",
+            "还有别的选择",
+            "时机尚未成熟",
+            "拭目以待",
+            "要主动",
+            "全力以赴",
+            "奇迹即将来临",
+            "另择吉日",
+            "如你所愿",
+            "不要纠结",
+            "大胆一点",
+            "勇敢",
+            "会付出代价",
+            "特别顺利",
+            "喵喵喵",
+            "认清现实",
+            "会是完美的",
+            "靠缘分",
+            "冒险一下",
+            "很棒<br>自信起来",
+            "一切皆有可能",
+            "请利用自己的优势",
+            "学会表达自己",
+            "回头看看",
+            "会很棒的",
+            "学会成长",
+            "避免第一个解决方案",
+            "机会就在眼前",
+            "实际一点吧",
+            "保持冷静",
+            "回家吧",
+            "值得肯定",
+            "不一定",
+            "别要求太多",
+            "别压抑自己的想法",
+            "等待"
+        ];
+
+        const answerElement = document.getElementById('answer');
+        let intervalId = null;
+        let isRunning = false;
+
+        function toggleRandomization() {
+            if (isRunning) {
+                clearInterval(intervalId);
+                isRunning = false;
+            } else {
+                isRunning = true;
+                intervalId = setInterval(() => {
+                    const randomIndex = Math.floor(Math.random() * answers.length);
+                    answerElement.innerHTML = answers[randomIndex];
+                }, 100);
+            }
+        }
+
+        document.body.onkeydown = function(e) {
+            if (e.keyCode === 32) { // Space bar
+                e.preventDefault(); // Prevent scrolling
+                toggleRandomization();
+            }
+        };
+
+        document.body.onclick = function() {
+            toggleRandomization();
+        };
+    </script>
+
+</body>
+</html>
