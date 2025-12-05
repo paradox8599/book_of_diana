@@ -1,0 +1,17 @@
+{
+  "name": "嘉然之书",
+  "short_name": "嘉然之书",
+  "description": "嘉然的答案之书",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3367D6",
+  "icons": [
+    {
+      "src": "icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
