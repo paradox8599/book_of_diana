@@ -47,6 +47,36 @@
                 font-size: 1.5rem;
             }
         }
+
+        .video-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: #E799B0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .video-float:hover {
+            background: #D6889F;
+            transform: scale(1.1);
+        }
+
+        .video-float svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +84,12 @@
     <div class="center-container">
         <div id="answer"><span class="prompt">按下空格键或点击开始</span></div>
     </div>
+
+    <a href="https://www.bilibili.com/video/BV1Cq2iBoExm/" target="_blank" class="video-float" title="【直播回放】【3D】答案之书好玩吗？ 2025年12月04日20点场" onclick="event.stopPropagation()">
+        <svg viewBox="0 0 24 24">
+            <path d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"/>
+        </svg>
+    </a>
 
     <script>
         const answers = [
