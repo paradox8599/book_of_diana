@@ -3,9 +3,11 @@
   "short_name": "嘉然之书",
   "description": "嘉然的答案之书",
   "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#3367D6",
+  "theme_color": "#E799B0",
   "icons": [
     {
       "src": "icon_512.png",

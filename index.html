@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book of Diana</title>
+    
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="嘉然的答案之书 - 点击获取你的今日指引">
+    <meta property="og:title" content="嘉然之书 (Book of Diana)">
+    <meta property="og:description" content="嘉然的答案之书 - 点击获取你的今日指引">
+    <meta property="og:image" content="https://diana.parawork.com/icon_512.png">
+    <meta property="og:url" content="https://diana.parawork.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="嘉然之书">
+    <link rel="apple-touch-icon" href="icon_512.png">
+
     <link rel="manifest" href="/manifest.json">
     <style>
         body, html {
@@ -82,7 +98,7 @@
 <body>
 
     <div class="center-container">
-        <div id="answer"><span class="prompt">按下空格键或点击开始</span></div>
+        <div id="answer" role="button" tabindex="0" aria-label="点击开始或停止随机选择" aria-live="polite"><span class="prompt">按下空格键或点击开始</span></div>
     </div>
 
     <a href="https://www.bilibili.com/video/BV1Cq2iBoExm/" target="_blank" class="video-float" title="【直播回放】【3D】答案之书好玩吗？ 2025年12月04日20点场" onclick="event.stopPropagation()">
@@ -166,8 +182,10 @@
             if (isRunning) {
                 clearInterval(intervalId);
                 isRunning = false;
+                answerElement.setAttribute('aria-live', 'polite');
             } else {
                 isRunning = true;
+                answerElement.setAttribute('aria-live', 'off');
                 intervalId = setInterval(() => {
                     const randomIndex = Math.floor(Math.random() * answers.length);
                     answerElement.innerHTML = answers[randomIndex];
